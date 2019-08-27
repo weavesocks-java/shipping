@@ -1,4 +1,4 @@
-package works.weave.socks.shipping.entities;
+package com.oracle.coherence.weavesocks.shipping;
 
 import java.util.UUID;
 
