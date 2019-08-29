@@ -23,15 +23,15 @@
 
     <caching-scheme-mapping>
         <cache-mapping>
-            <cache-name>shipping</cache-name>
-            <scheme-name>shipping</scheme-name>
+            <cache-name>shipments</cache-name>
+            <scheme-name>shipments</scheme-name>
         </cache-mapping>
     </caching-scheme-mapping>
 
     <caching-schemes>
         <distributed-scheme>
-            <scheme-name>shipping</scheme-name>
-            <service-name>shipping</service-name>
+            <scheme-name>shipments</scheme-name>
+            <service-name>Shipments</service-name>
             <backing-map-scheme>
                 <local-scheme>
                     <unit-calculator>BINARY</unit-calculator>

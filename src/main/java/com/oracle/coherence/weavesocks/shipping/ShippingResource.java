@@ -1,5 +1,9 @@
 package com.oracle.coherence.weavesocks.shipping;
 
+import java.util.Collection;
+import java.util.List;
+import java.util.UUID;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -18,25 +22,27 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 public class ShippingResource {
 
     @Inject
-    private NamedCache<String, Shipment> shipping;
+    private NamedCache<String, Shipment> shipments;
 
     @GET
-    public String getShipping() {
-        return "GET ALL" + shipping.size() + " Shipping Resource.";
+    @Produces(APPLICATION_JSON)
+    public Collection<Shipment> getAllShipments() {
+        return shipments.values();
     }
 
     @GET
     @Path("{id}")
-    public String getShippingById(@PathParam("id") String id) {
-        Shipment shipment = shipping.get(id);
-        return "GET Shipping Resource with id: " + id;
+    @Produces(APPLICATION_JSON)
+    public Shipment getShipmentById(@PathParam("id") String id) {
+        return shipments.get(id);
     }
 
     @POST
     @Consumes(APPLICATION_JSON)
     @Produces(APPLICATION_JSON)
-    public Shipment postShipping(Shipment shipment) {
-        shipping.put(shipment.getId(), shipment);
+    public Shipment ship(Shipment shipment) {
+        shipment.setTrackingNumber(UUID.randomUUID().toString());
+        shipments.put(shipment.getId(), shipment);
         return shipment;
     }
 }
