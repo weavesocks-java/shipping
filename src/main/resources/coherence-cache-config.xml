@@ -5,8 +5,6 @@
         xmlns:helidon="class://com.oracle.coherence.helidon.HelidonNamespaceHandler"
         xsi:schemaLocation="http://xmlns.oracle.com/coherence/coherence-cache-config coherence-cache-config.xsd">
 
-    <helidon:http/>
-
     <helidon:http id="management">
         <port>30000</port>
         <applications>
