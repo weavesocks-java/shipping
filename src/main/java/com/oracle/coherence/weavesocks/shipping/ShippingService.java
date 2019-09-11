@@ -52,6 +52,7 @@ public class ShippingService {
 
     // ---- inner class: Marshaller -----------------------------------------
 
+    @ApplicationScoped
     @Named("shipping")
     public static class Marshaller implements MarshallerSupplier {
 
