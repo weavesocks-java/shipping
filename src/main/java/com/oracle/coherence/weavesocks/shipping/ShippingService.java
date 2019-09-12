@@ -43,11 +43,15 @@ public class ShippingService {
     @Unary
     public Shipment ship(Shipment shipment) {
         LOGGER.log(Level.INFO, "Processing shipment: " + shipment);
-        shipment.setTrackingNumber(UUID.randomUUID().toString());
+        shipment.setTrackingNumber(createTrackingNumber());
         shipments.put(shipment.getId(), shipment);
         LOGGER.log(Level.INFO, "Processed shipment: " + shipment);
 
         return shipment;
+    }
+
+    private String createTrackingNumber() {
+        return UUID.randomUUID().toString().substring(0, 8).toUpperCase();
     }
 
     // ---- inner class: Marshaller -----------------------------------------
