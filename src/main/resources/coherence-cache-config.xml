@@ -5,19 +5,7 @@
         xmlns:helidon="class://com.oracle.coherence.helidon.HelidonNamespaceHandler"
         xsi:schemaLocation="http://xmlns.oracle.com/coherence/coherence-cache-config coherence-cache-config.xsd">
 
-    <helidon:http id="management">
-        <port>30000</port>
-        <applications>
-            <application>com.tangosol.coherence.management.internal.ManagementResourceConfig</application>
-        </applications>
-    </helidon:http>
-
-    <helidon:http id="metrics">
-        <port>9612</port>
-        <applications>
-            <application context="/metrics">com.tangosol.coherence.metrics.internal.MetricsResourceConfig</application>
-        </applications>
-    </helidon:http>
+    <helidon:http/>
 
     <caching-scheme-mapping>
         <cache-mapping>
